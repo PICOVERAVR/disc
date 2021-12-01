@@ -4,6 +4,7 @@
 #endif
 
 #include <fenv.h>
+#include <float.h>
 
 #include "floats.h"
 
@@ -70,6 +71,21 @@ void floats() {
         default:
             printf("unknown\n");
     };
+
+	printf("\tfloat eval method: ");
+	switch (FLT_EVAL_METHOD) {
+		case 0:
+			printf("float != double != long double\n");
+			break;
+		case 1:
+			printf("float == double != long double\n");
+			break;
+		case 2:
+			printf("float == double == long double\n");
+			break;
+		default:
+			printf("unknown\n");
+	}
 
     printf("\n");
 }

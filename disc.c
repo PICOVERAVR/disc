@@ -14,6 +14,7 @@
 #include "hw.h"
 #include "threads.h"
 #include "types.h"
+#include "locale.h"
 
 #if __STDC_VERSION__ < 201112L
 #error standard revisions before C11 are not supported.
@@ -62,6 +63,7 @@ void signal_handler(int signal) {
 	}
 
 	printf("caught signal %d (%s)\n", signal, sig_str);
+	exit(EXIT_FAILURE);
 }
 
 int main(int argc, char **argv) {
@@ -87,6 +89,8 @@ int main(int argc, char **argv) {
 	comptime();
 
 	host();
+
+	locale();
 
 	hw();
 
