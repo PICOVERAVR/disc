@@ -3,6 +3,9 @@ SRC := $(wildcard *.c)
 CFLAGS := -Wall -Wextra -Og
 LIBS := -lm -lpthread
 
-disc: $(wildcard *.c)
+disc: $(SRC)
 	@$(CC) $(SRC) $(CFLAGS) $(LIBS) -o disc
+
+clean:
+	@rm disc
 
